@@ -332,7 +332,7 @@ runs:
         fi
 
     - uses: EndBug/add-and-commit@v9
-      if: ${{ inputs.FIX == 'true' }}
+      if: ${{ inputs.FIX == 'true' && (failure() || success() ) }}
       with:
         message: "fix(accessibility): add recommendations from scan"
         committer_name: GitHub Actions
