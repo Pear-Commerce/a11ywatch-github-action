@@ -297,6 +297,7 @@ runs:
 
     - name: Post Github PR comment
       id: a11ywatch-pr-commenter
+      if: (failure() || success() )
       shell: bash
       run: |
         echo "post stats"
@@ -332,7 +333,7 @@ runs:
         fi
 
     - uses: EndBug/add-and-commit@v9
-      if: ${{ inputs.FIX == 'true' && (failure() || success() ) }}
+      if: ${{ inputs.FIX == 'true'  }}
       with:
         message: "fix(accessibility): add recommendations from scan"
         committer_name: GitHub Actions
