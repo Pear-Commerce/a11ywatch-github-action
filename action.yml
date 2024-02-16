@@ -294,8 +294,8 @@ runs:
 
     - name: Post Stats to GitHub PR
       shell: bash
-      if: ${{ github.event_name == 'pull_request' && inputs.DISABLE_PR_STATS == 'false' }}
       run: |
+        echo "post stats"
         # post github
         GH_TOKEN="${{ inputs.TOKEN || github.token }}"
 
