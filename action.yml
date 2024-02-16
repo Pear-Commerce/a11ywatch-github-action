@@ -291,8 +291,12 @@ runs:
         results_json="$(a11ywatch --results-parsed)"
         echo "results=$(echo ${results_json})" >> $GITHUB_OUTPUT
         echo "issues=$(echo ${website_issues_total})" >> $GITHUB_OUTPUT
+    - name: Commentado
+      shell: bash
+      run: echo "commentado"
 
-    - name: Post Stats to GitHub PR
+    - name: Post Github PR comment
+      id: a11ywatch-pr-commenter
       shell: bash
       run: |
         echo "post stats"
